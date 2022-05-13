@@ -4,16 +4,10 @@ const mongoose = require('mongoose')
 const dotenv = require('dotenv')
 const cors = require('cors')
 const apiRoute = require('./route/route')
-
 port=8080;
-
 app.use(express.json(),cors())
-
 app.use('/app/user', apiRoute)
-
 dotenv.config()
-
-
 mongoose.connect(process.env.DB_CONNECT, {useNewUrlParser: true})
 .then(()=>{
     console.log('connected to DB')
